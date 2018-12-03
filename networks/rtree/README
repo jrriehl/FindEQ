@@ -1,0 +1,19 @@
+###############
+Description:
+
+MATLAB routines to simulate a branching (Galton-Watson) process and
+plot it as a tree. The detailed documentation can be found in
+
+http://www.math.uu.se/research/telecom/software/
+
+Any suggestions or comments are welcome.
+
+
+###############
+Version: 1.5
+Last revision: 23-Nov-05
+
+###############
+Authors: 
+  Ingemar Kaj <ikaj@math.uu.se>
+  Raimundas Gaigalas <jaunas@math.uu.se>
