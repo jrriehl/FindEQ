@@ -4,10 +4,10 @@ addpath(genpath('./'));
 
 % Network and algorithm parameters
 networkType = 'geometric'; % {'ring','geometric','dir-geometric'}
-n = 10;
+n = 12;
 numStrategies = 2;
 numGroups = 2;
-maxGroupSize = 4;
+maxGroupSize = 10;
 seed = 1;
 
 %% ----------Construct a random example to use for testing-------------- %%
@@ -82,7 +82,7 @@ for i = 1:numStates
       end
     end
   end
-end
+% end
 
 if good
   disp('FindLocalEQ Test: passed');
@@ -171,7 +171,7 @@ numUniqPhi = length(GD.uniqPhiPREQ);
 good = false(numUniqPhi,1);
 for i = 1:numUniqPhi
   targetPhi = GD.uniqPhiPREQ(i);
-  eqPhi = ExpandEq(GD,targetPhi);
+  eqPhi = ExpandEq2(GD,targetPhi);
   
   eqPhiCheck = GEQ(allPhi == targetPhi,:);
   

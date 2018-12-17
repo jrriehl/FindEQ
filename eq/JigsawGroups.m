@@ -81,18 +81,6 @@ if length(selNodes) > maxGroupSize
         subPhiBREQCounts{k}(:,indSubPREQ2subBREQ{k}(i)) = subPhiBREQCounts{k}(:,indSubPREQ2subBREQ{k}(i)) + pPCk(:,i);
       end
       subPhiBREQCounts{k} = sparse(subPhiBREQCounts{k})';
-      
-%       PK = subGD{k}.phiPREQCounts';
-%       IC = indSubPREQ2subBREQ{k};
-%       sp2sb = subBREQ2subPREQ{k};
-%       uPhi = subGD{k}.uniqPhiPREQ;
-%       W = zeros(length(uPhi),size(subBREQ{k},1));
-%       for i = 1:length(uPhi)
-%         for jj = 1:length(IC)
-%           [~,j] = find(sp2sb(jj,:));
-%           W(i,j) = W(i,j) + PK(i,jj);
-%         end
-%       end
          
       % subUniqPhiBREQ{k} = vector of all unique feasible energy values for partition group k
       subUniqPhiBREQ{k} = subGD{k}.uniqPhiPREQ;
@@ -172,7 +160,7 @@ if length(selNodes) > maxGroupSize
   end
   numEq = sum(prod(PREQCountsTotal,2));
   if computeEnergies && ~isempty(subUniqPhiBREQ)
-    [uniqPhiPREQ,phiPREQCounts] = MapGroupEnergies3(subUniqPhiBREQ,subPhiBREQCounts,indPREQ2subBREQ,phiInterGroup,subPhiBREQOffset);
+    [uniqPhiPREQ,phiPREQCounts] = MapGroupEnergies(subUniqPhiBREQ,subPhiBREQCounts,indPREQ2subBREQ,phiInterGroup,subPhiBREQOffset);
   end
   
   if ng.showStatus, disp('Done'); end
